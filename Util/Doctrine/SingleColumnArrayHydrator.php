@@ -2,6 +2,7 @@
 
 namespace Lexik\Bundle\TranslationBundle\Util\Doctrine;
 
+use Doctrine\DBAL\Exception;
 use Doctrine\ORM\Internal\Hydration\AbstractHydrator;
 
 /**
@@ -13,12 +14,14 @@ class SingleColumnArrayHydrator extends AbstractHydrator
 {
     /**
      * {@inheritdoc}
+     * @throws Exception
      */
-    protected function hydrateAllData()
+    protected function hydrateAllData(): mixed
     {
         $result = [];
 
-        while ($data = $this->_stmt->fetch(\PDO::FETCH_NUM)) {
+        while ($data = $this->stmt->fetchAllNumeric()) {
+//        while ($data = $this->_stmt->fetch(\PDO::FETCH_NUM)) {
             $value = $data[0];
 
             if (is_numeric($value)) {
