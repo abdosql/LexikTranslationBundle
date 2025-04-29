@@ -1,5 +1,6 @@
 {
     "name": "lexik/translation-bundle",
+    "version": "dev-6.4-seqqal",
     "type": "symfony-bundle",
     "description": "This bundle allows to import translation files content into the database and provide a GUI to edit translations.",
     "keywords": ["Symfony", "bundle", "translation", "i18n"],
