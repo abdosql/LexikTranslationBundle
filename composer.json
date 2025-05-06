@@ -1,0 +1,63 @@
+{
+    "name": "lexik/translation-bundle",
+    "version": "dev-6.4-seqqal",
+    "type": "symfony-bundle",
+    "description": "This bundle allows to import translation files content into the database and provide a GUI to edit translations.",
+    "keywords": ["Symfony", "bundle", "translation", "i18n"],
+    "homepage": "https://github.com/lexik/LexikTranslationBundle",
+    "license": "MIT",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Cedric Girard",
+            "email": "c.girard@lexik.fr"
+        },
+        {
+            "name": "Dev Lexik",
+            "email": "dev@lexik.fr"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "symfony/framework-bundle": "^6.4",
+        "monolog/monolog": "^3.9"
+    },
+    "require-dev": {
+        "symfony/symfony": "^6.4",
+        "ext-mongodb": "*",
+        "doctrine/annotations": "^2.0.2",
+        "doctrine/cache": "^2.2",
+        "doctrine/orm": "^3.3",
+        "doctrine/doctrine-bundle": "^2.14",
+        "doctrine/data-fixtures": "^2.0.2",
+        "doctrine/mongodb-odm-bundle": "^5.3.0",
+        "propel/propel": "^2.0.0-beta4",
+        "phpunit/phpunit": "^10.5",
+        "doctrine/mongodb-odm": "^2.11.1",
+        "mongodb/mongodb": "^2.0.0",
+        "ext-pdo": "*",
+        "mikey179/vfsstream": "^1.6.12",
+        "rector/rector": "^2.0.14"
+    },
+
+    "suggest": {
+        "doctrine/orm": ">=2.4"
+    },
+    "autoload":     {
+        "psr-4": { "Lexik\\Bundle\\TranslationBundle\\": "" }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "Tests/app/AppKernel.php"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.x.x-dev"
+        }
+    },
+    "minimum-stability": "alpha",
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
