@@ -22,7 +22,6 @@ class TransUnitType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-
         $allDomains = array_unique(array_merge(
             (array) $options['default_domain'],
             (array) $options['domains']
@@ -36,7 +35,7 @@ class TransUnitType extends AbstractType
             ChoiceType::class,
             [
                 'label'   => 'translations.domain',
-                'choices' => $allDomains
+                'choices' => array_flip($allDomains)
             ]);
 
         /*        $builder->add(
