@@ -22,23 +22,13 @@ class TransUnitType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $allDomains = array_unique(array_merge(
-            (array) $options['default_domain'],
-            (array) $options['domains']
-        ));
         $builder->add(
             'key', TextType::class,
             ['label' => 'translations.key']
         );
-        $builder->add(
-            'domain',
-            ChoiceType::class,
-            [
-                'label'   => 'translations.domain',
-                'choices' => array_flip($allDomains)
-            ]);
 
-        /*        $builder->add(
+
+        $builder->add(
             'domain',
             ChoiceType::class,
             [
@@ -46,7 +36,7 @@ class TransUnitType extends AbstractType
                 'choices' => array_merge(
             array_combine($options['default_domain'], $options['default_domain']),
             array_combine($options['domains'], $options['domains'])
-        )]);*/
+        )]);
         $builder->add(
             'translations',
             CollectionType::class,
@@ -76,7 +66,7 @@ class TransUnitType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(['data_class'         => null, 'default_domain'     => ['messages'], 'domains'            => [], 'translation_class'  => null, 'translation_domain' => 'LexikTranslationBundle']);
+        $resolver->setDefaults(['data_class'         => null, 'default_domain'     => ['messages', "security", "test domain"], 'domains'            => [], 'translation_class'  => null, 'translation_domain' => 'LexikTranslationBundle']);
     }
 
     /**

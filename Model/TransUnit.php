@@ -53,7 +53,7 @@ abstract class TransUnit
      */
     public function __construct()
     {
-        $this->domain = 'messages';
+        $this->domain = '';
         $this->translations = new ArrayCollection();
     }
 

@@ -34,7 +34,6 @@ class SingleColumnArrayHydrator extends AbstractHydrator
 
             $result[] = $value;
         }
-
         return $result;
     }
 }

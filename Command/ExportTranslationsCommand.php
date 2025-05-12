@@ -98,7 +98,6 @@ class ExportTranslationsCommand extends Command
     protected function exportFile(FileInterface $file)
     {
         $rootDir = $this->input->getOption('export-path') ? $this->input->getOption('export-path') . '/' : $this->projectDir;
-
         $this->output->writeln(sprintf('<info># Exporting "%s/%s":</info>', $file->getPath(), $file->getName()));
         $override = $this->input->getOption('override');
 
@@ -112,7 +111,6 @@ class ExportTranslationsCommand extends Command
         } else {
             $onlyUpdated = !$override;
         }
-
         $translations = $this->storage->getTranslationsFromFile($file, $onlyUpdated);
 
         if (count($translations) < 1) {
