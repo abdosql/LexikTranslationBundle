@@ -20,7 +20,7 @@ class SingleColumnArrayHydrator extends AbstractHydrator
     {
         $result = [];
 
-        while ($data = $this->stmt->fetch()) {
+        while ($data = $this->stmt->fetchNumeric()) {
 //        while ($data = $this->_stmt->fetch(\PDO::FETCH_NUM)) {
             $value = $data[0];
 
