@@ -67,7 +67,7 @@ class TransUnitFormHandler implements FormHandlerInterface
                     if (!$translation->getFile()) {
                         $file = $this->fileManager->getFor(
                             sprintf('%s.%s.yml', $transUnit->getDomain(), $translation->getLocale()),
-                            $this->rootDir . '/Resources/translations'
+                            $this->rootDir . '/translations'
                         );
 
                         if ($file instanceof FileInterface) {
