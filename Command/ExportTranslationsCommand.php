@@ -51,7 +51,7 @@ class ExportTranslationsCommand extends Command
         $this->addOption('format', 'f', InputOption::VALUE_OPTIONAL, 'Force the output format.', null);
         $this->addOption(
             'override', 'o', InputOption::VALUE_NONE,
-            'Only export modified phrases (app/Resources/translations are exported fully anyway)'
+            'Only export modified phrases (src/translations are exported fully anyway)'
         );
         $this->addOption('export-path', 'p', InputOption::VALUE_REQUIRED, 'Export files to given path.');
     }
@@ -105,7 +105,7 @@ class ExportTranslationsCommand extends Command
         if (!$this->input->getOption('export-path')) {
             // we only export updated translations in case of the file is located in vendor/
             if ($override) {
-                $onlyUpdated = ('Resources/translations' !== $file->getPath());
+                $onlyUpdated = ('translations' !== $file->getPath());
             } else {
                 $onlyUpdated = (str_contains((string)$file->getPath(), 'vendor/'));
             }
@@ -125,7 +125,7 @@ class ExportTranslationsCommand extends Command
 
         // we don't write vendors file, translations will be exported in %kernel.root_dir%/Resources/translations
         if (str_contains((string)$file->getPath(), 'vendor/') || $override) {
-            $outputPath = sprintf('%s/Resources/translations', $rootDir);
+            $outputPath = sprintf('%s/translations', $rootDir);
         } else {
             $outputPath = sprintf('%s/%s', $rootDir, $file->getPath());
         }
